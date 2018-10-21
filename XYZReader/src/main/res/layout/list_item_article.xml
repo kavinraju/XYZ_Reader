@@ -19,13 +19,13 @@
         android:layout_height="wrap_content">
 
         <!--suppress AndroidLintContentDescription -->
-        <com.example.xyzreader.ui.DynamicHeightNetworkImageView
+        <ImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="120dp"
 
             android:background="@color/photo_placeholder"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

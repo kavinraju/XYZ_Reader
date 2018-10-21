@@ -21,6 +21,7 @@ import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.example.xyzreader.Adapter.MyPagerAdapter;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
@@ -35,7 +36,7 @@ public class ArticleDetailActivity extends AppCompatActivity
     private long mStartId;
     private long mSelectedItemId;
     private int mTopInset;
-    private String transitionName;
+    //private String transitionName;
 
     private Cursor mCursor;
     private ViewPager mPager;
@@ -72,7 +73,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         mPager.setPageMargin((int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
         mPager.setPageMarginDrawable(new ColorDrawable(0x22000000));
-        mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        mPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageScrollStateChanged(int state) {
                 super.onPageScrollStateChanged(state);
@@ -144,6 +145,9 @@ public class ArticleDetailActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         mCursor = cursor;
+
+        mPagerAdapter.setmCursor(mCursor);
+        mPagerAdapter.setTransitionName(null);
         mPagerAdapter.notifyDataSetChanged();
 
         // Select the start ID
@@ -170,7 +174,8 @@ public class ArticleDetailActivity extends AppCompatActivity
     // Listener for animating the upButton
     @Override
     public void showView(boolean showView) {
-        if (showView){
+        // I added this for animating the navigation up button
+        /*if (showView){
             mUpButtonContainer.animate()
                     .translationX(0)
                     .setDuration(getResources().getInteger(R.integer.animation_speed))
@@ -184,7 +189,7 @@ public class ArticleDetailActivity extends AppCompatActivity
                     .setInterpolator(new AccelerateDecelerateInterpolator())
                     .start();
             Log.d("showView","false");
-        }
+        }*/
     }
 
 
@@ -197,35 +202,8 @@ public class ArticleDetailActivity extends AppCompatActivity
         super.finishAfterTransition();
     }
 
-
     public int getPosition(){
         return  mPager.getCurrentItem();
-    }
-
-    // Adapter Class
-    private class MyPagerAdapter extends FragmentStatePagerAdapter {
-        MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            super.setPrimaryItem(container, position, object);
-            ArticleDetailFragment fragment = (ArticleDetailFragment) object;
-            //mediaSharedElementCallback.setSharedElementViews();
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            mCursor.moveToPosition(position);
-
-            return ArticleDetailFragment.newInstance(mCursor.getLong(ArticleLoader.Query._ID),transitionName);
-        }
-
-        @Override
-        public int getCount() {
-            return (mCursor != null) ? mCursor.getCount() : 0;
-        }
     }
 
 }

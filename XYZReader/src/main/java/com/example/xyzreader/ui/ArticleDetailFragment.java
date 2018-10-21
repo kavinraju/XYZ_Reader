@@ -40,6 +40,11 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 
@@ -61,6 +66,7 @@ public class ArticleDetailFragment extends Fragment implements
     private NestedScrollView mNestedScrollView;
     private FloatingActionButton fab;
     private AppBarLayout mToolbar;
+    private Context mContext;
 
 
     private ImageView mPhotoView;
@@ -97,6 +103,7 @@ public class ArticleDetailFragment extends Fragment implements
     public void onAttach(Context context) {
         super.onAttach(context);
         // Check if the AriticleDetailActivity has implemented this listener
+        mContext = context;
         try {
             onNestedScrollListener = (OnNestedScrollListener) context;
         }catch (ClassCastException e){
@@ -256,25 +263,19 @@ public class ArticleDetailFragment extends Fragment implements
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)
                     .substring(0,2500)
                     .replaceAll("(\r\n|\n)", "<br />")));
-            ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
-                    .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
-                        @Override
-                        public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
-                            Bitmap bitmap = imageContainer.getBitmap();
-                            if (bitmap != null) {
-                                //Palette p = Palette.generate(bitmap, 12);
-                                //mMutedColor = p.getDarkMutedColor(0xFF333333);
-                                mPhotoView.setImageBitmap(imageContainer.getBitmap());
-                                /*mRootView.findViewById(R.id.meta_bar)
-                                        .setBackgroundColor(mMutedColor);*/
-                            }
-                        }
 
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-
-                        }
-                    });
+            RequestOptions options = new RequestOptions()
+                    .error(R.drawable.empty_detail)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .override(600, 300)
+                    .placeholder(R.drawable.empty_detail)
+                    .error(R.drawable.error_bk)
+                    .priority(Priority.HIGH);
+            Glide.with(mContext)
+                    .load(mCursor.getString(ArticleLoader.Query.PHOTO_URL))
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(options)
+                    .into(mPhotoView);
         } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
