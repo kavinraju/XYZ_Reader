@@ -4,9 +4,10 @@ This project is part of Android Developer Nanodegree.
 1) Design Support library
 2) FloatingActionButton
 3) SnackBar
-4) AppBarLayout
-5) CollapsingToolbarLayout
-6) CoordinatorLayout
-7) CardView
-8) Fragment
-9) Interpolator
+4) Toolbar
+5) AppBarLayout
+6) CollapsingToolbarLayout
+7) CoordinatorLayout
+8) CardView
+9) Fragment
+10) Interpolator
