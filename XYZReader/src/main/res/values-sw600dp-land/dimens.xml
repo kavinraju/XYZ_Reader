@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recylerview_overlayTop">100dp</dimen>
+    <dimen name="appBarLayout_article_list_height">300dp</dimen>
+    <dimen name="photo_height">320dp</dimen>
+</resources>

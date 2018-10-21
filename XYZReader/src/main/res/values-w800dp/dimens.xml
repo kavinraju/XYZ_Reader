@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="swipe_refresh_layout_margin">32dp</dimen>
+    <dimen name="recylerview_overlayTop">100dp</dimen>
+    <dimen name="appBarLayout_article_list_height">200dp</dimen>
+    <dimen name="photo_height">320dp</dimen>
+</resources>

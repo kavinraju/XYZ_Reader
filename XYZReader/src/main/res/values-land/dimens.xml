@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="swipe_refresh_layout_margin">8dp</dimen>
+    <dimen name="recylerview_overlayTop">70dp</dimen>
+    <dimen name="appBarLayout_article_list_height">200dp</dimen>
+    <dimen name="photo_height">150dp</dimen>
+
+    <!-- detail -->
+    <dimen name="detail_inner_horiz_margin">32dp</dimen>
+    <dimen name="detail_body_top_margin">32dp</dimen>
+    <dimen name="detail_body_bottom_margin">32dp</dimen>
+</resources>

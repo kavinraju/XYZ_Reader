@@ -1,0 +1,68 @@
+<resources>
+
+    <!-- list -->
+    <dimen name="list_side_margin">4dp</dimen>
+    <dimen name="list_toolbar_side_margin">0dp</dimen>
+    <dimen name="list_toolbar_top_margin">24dp</dimen>
+
+
+    <!-- detail -->
+    <dimen name="detail_title_text_size">24sp</dimen>
+    <dimen name="detail_body_text_size">22sp</dimen>
+    <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
+    <dimen name="detail_inner_horiz_margin">16dp</dimen>
+    <dimen name="detail_body_top_margin">16dp</dimen>
+    <dimen name="detail_body_bottom_margin">16dp</dimen>
+
+    <!-- fab -->
+    <dimen name="fab_size">40dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_press_translation_z">12dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- appbar  -->
+    <dimen name="appbar_elevation">4dp</dimen>
+
+<!--  activity_article_list.xml -->
+    <dimen name="swipe_refresh_layout_margin">8dp</dimen>
+    <dimen name="recylerview_overlayTop">70dp</dimen>
+    <dimen name="appBarLayout_article_list_height">200dp</dimen>
+
+        <!-- appBarLayout -->
+    <dimen name="appBarLayoutAriticleList_padding_top">32dp</dimen>
+    <dimen name="appBarLayoutAriticleList_padding_bottom">32dp</dimen>
+
+        <!-- ImageView-->
+    <dimen name="iv_logo_toolbar_padding">8dp</dimen>
+
+        <!-- cardview -->
+    <dimen name="cardview_list_item_article_top_margin">4dp</dimen>
+    <dimen name="cardview_list_item_article_bottom_margin">4dp</dimen>
+    <dimen name="cardview_list_item_article_start_margin">4dp</dimen>
+    <dimen name="cardview_list_item_article_end_margin">4dp</dimen>
+    <dimen name="cardview_list_item_article_corner_radius">4dp</dimen>
+    <dimen name="cardview_list_item_article_card_elevation">1dp</dimen>
+        <!-- cardview - title-->
+    <dimen name="cardview_list_item_article_title_padding">8dp</dimen>
+        <!-- cardview - sub title-->
+    <dimen name="cardview_list_item_article_subtitle_end_padding">8dp</dimen>
+    <dimen name="cardview_list_item_article_subtitle_bottom_padding">8dp</dimen>
+    <dimen name="cardview_list_item_article_subtitle_start_padding">8dp</dimen>
+
+<!--  fragment_article_detail.xml -->
+    <dimen name="photo_height">300dp</dimen>
+
+        <!-- article title -->
+    <dimen name="article_title_side_margin">16dp</dimen>
+        <!-- article byline -->
+    <dimen name="article_byline_side_margin">16dp</dimen>
+    <dimen name="article_byline_bottom_margin">16dp</dimen>
+        <!-- toolbar-->
+    <dimen name="consentInset_0dp">0dp</dimen>
+        <!-- nestedScrollView -->
+    <dimen name="nestedScrollView_elevation">4dp</dimen>
+
+
+</resources>

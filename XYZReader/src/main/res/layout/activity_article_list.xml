@@ -1,0 +1,65 @@
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayoutAriticleList"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context= "ui.ArticleListActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayoutAriticleList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appBarLayoutAriticleList_padding_top"
+        android:paddingBottom="@dimen/appBarLayoutAriticleList_padding_bottom"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapse_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/iv_logo_collapsingToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logo"
+                android:contentDescription="@string/app_name" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:title=""
+            app:layout_scrollFlags="scroll"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom">
+            <ImageView
+                android:id="@+id/iv_logo_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/iv_logo_toolbar_padding"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logo"
+                android:visibility="visible"
+                android:contentDescription="@string/app_name" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_article_list"/>
+
+</android.support.design.widget.CoordinatorLayout>
