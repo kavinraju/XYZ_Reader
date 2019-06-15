@@ -1,6 +1,6 @@
  # XYZ Reader 
-This project is part of Android Developer Nanodegree. 
-## This project implements <b> Material Design </b> concepts.
+## This project was created as a part of Android Developer Nanodegree.
+# This project implements <b> Material Design </b> concepts.
 1) Design Support library
 2) FloatingActionButton
 3) SnackBar
